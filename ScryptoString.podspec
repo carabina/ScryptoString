@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
 # 1
 s.platform = :ios
-s.ios.deployment_target = '8.0'
+s.ios.deployment_target = '9.1'
 s.name = "ScryptoString"
 s.summary = "ScryptoString lets you encrypt / decrypt any string value by using any string as password. Simply call the extension methods using the same password and they will mask / unmask your strings."
 s.requires_arc = true
