@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://lollyrock.com/articles/nodejs-encryption/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google-site-verification" content="iplyfI0Y6pOe8NsNYwwrKe-QfSYamSeEhQiDFh93NiU">
+    <title>Encrypt and decrypt content with Nodejs - chris-rock
+    </title>
+    <link rel="alternate" href="http://lollyrock.com/feed.xml" type="application/rss+xml" title="fun &amp; sun">
+    <link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/css">
+    <link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/main.css">
+    <script id="twitter-wjs" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/widgets.js"></script><script async="" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/analytics.js"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-50992958-1', 'lollyrock.com');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      
+    </script>
+  <script type="text/javascript" charset="utf-8" async="" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/button.7db838345f9545c91ea4497f64abb814.js"></script></head>
+  <body class="article-detail" cz-shortcut-listen="true">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Encrypt and decrypt content with Nodejs</h1>
+        <p class="author">Written by <span class="author"><a href="mailto:chris@lollyrock.com">Christoph Hartmann</a></span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><style type="text/css">
+.gist {
+  font-size: 12px;
+}
+</style>
+
+<p>Nodejs offers great support for cryptography. Under the hood it uses openssl and ships with a <a href="http://nodejs.org/api/crypto.html">Javascript api</a>. Unfortunately the api is not always as intuitive as it should be, especially when you have to deal with error codes. To make you life easier, I collected various approaches for encryption with <span class="caps">AES</span>&nbsp;256.</p>
+<p>Update: All examples are available on Github <a href="https://github.com/chris-rock/node-crypto-examples">node-crypto-examples</a>,&nbsp;too.</p>
+<h2 id="encryption-mode">Encryption&nbsp;mode</h2>
+<p>The first decision is the <span class="caps">AES</span> encryption mode. Currently I recommend the <a href="http://nodejs.org/api/crypto.html"><span class="caps">CTR</span> mode</a>. You may want to read <a href="http://www.cs.ucdavis.edu/~rogaway/papers/modes.pdf">Evaluation of Some Blockcipher Modes of Operation</a> or <a href="http://csrc.nist.gov/groups/ST/toolkit/BCM/documents/ccm-ad1.pdf">On the Security of <span class="caps">CTR</span> + CBC-MAC</a>. The next nodejs version comes with support for <a href="http://en.wikipedia.org/wiki/Galois/Counter_Mode"><span class="caps">GCM</span></a> to do <a href="http://en.wikipedia.org/wiki/Authenticated_encryption">authenticated encryption</a>. Until then you have to use approaches like Encrypt-then-<span class="caps">MAC</span> and combine the encryption with the generation of <a href="http://lollyrock.com/articles/nodejs-sha512/"><span class="caps">SHA</span> hashs</a>.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="encrypt-and-decrypt-text">Encrypt and decrypt&nbsp;text</h3>
+<script src="./Encrypt and decrypt content with Nodejs - chris-rock_files/993d8a22c7138d1f0d2e.js"></script><link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/gist-embed-e93d89e26a0f00de2cd61bd63628a123.css"><div id="gist14281171" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-crypto-ctr-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-crypto-ctr-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-crypto-ctr-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Part of https://github.com/chris-rock/node-crypto-examples</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-crypto-ctr-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-crypto-ctr-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Nodejs encryption with CTR</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-crypto-ctr-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> crypto <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>crypto<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-crypto-ctr-js-LC5" class="blob-code blob-code-inner js-file-line">    algorithm <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>aes-256-ctr<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-crypto-ctr-js-LC6" class="blob-code blob-code-inner js-file-line">    password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>d6F3Efeq<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-crypto-ctr-js-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-crypto-ctr-js-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">encrypt</span>(<span class="pl-smi">text</span>){</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-crypto-ctr-js-LC9" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> cipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createCipher</span>(algorithm,password)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-crypto-ctr-js-LC10" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> crypted <span class="pl-k">=</span> <span class="pl-smi">cipher</span>.<span class="pl-en">update</span>(text,<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-crypto-ctr-js-LC11" class="blob-code blob-code-inner js-file-line">  crypted <span class="pl-k">+=</span> <span class="pl-smi">cipher</span>.<span class="pl-en">final</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-crypto-ctr-js-LC12" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> crypted;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-crypto-ctr-js-LC13" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-crypto-ctr-js-LC14" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-crypto-ctr-js-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">decrypt</span>(<span class="pl-smi">text</span>){</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-crypto-ctr-js-LC16" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> decipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createDecipher</span>(algorithm,password)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-crypto-ctr-js-LC17" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> dec <span class="pl-k">=</span> <span class="pl-smi">decipher</span>.<span class="pl-en">update</span>(text,<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-crypto-ctr-js-LC18" class="blob-code blob-code-inner js-file-line">  dec <span class="pl-k">+=</span> <span class="pl-smi">decipher</span>.<span class="pl-en">final</span>(<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-crypto-ctr-js-LC19" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> dec;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-crypto-ctr-js-LC20" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-crypto-ctr-js-LC21" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-crypto-ctr-js-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> hw <span class="pl-k">=</span> <span class="pl-en">encrypt</span>(<span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-crypto-ctr-js-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> outputs hello world</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-ctr-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-crypto-ctr-js-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decrypt</span>(hw));</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/chris-rock/993d8a22c7138d1f0d2e/raw/4353052661bafcce2c8e4a055629f58d6ac93298/crypto-ctr.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/chris-rock/993d8a22c7138d1f0d2e#file-crypto-ctr-js">crypto-ctr.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="encrypt-and-decrypt-buffers">Encrypt and decrypt&nbsp;buffers</h3>
+<script src="./Encrypt and decrypt content with Nodejs - chris-rock_files/6cac4e422f29c28c9d88.js"></script><link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/gist-embed-e93d89e26a0f00de2cd61bd63628a123.css"><div id="gist14281133" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-crypto-buffer-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-crypto-buffer-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-crypto-buffer-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Part of https://github.com/chris-rock/node-crypto-examples</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-crypto-buffer-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-crypto-buffer-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> crypto <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>crypto<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-crypto-buffer-js-LC4" class="blob-code blob-code-inner js-file-line">    algorithm <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>aes-256-ctr<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-crypto-buffer-js-LC5" class="blob-code blob-code-inner js-file-line">    password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>d6F3Efeq<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-crypto-buffer-js-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-crypto-buffer-js-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">encrypt</span>(<span class="pl-smi">buffer</span>){</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-crypto-buffer-js-LC8" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> cipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createCipher</span>(algorithm,password)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-crypto-buffer-js-LC9" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> crypted <span class="pl-k">=</span> <span class="pl-smi">Buffer</span>.<span class="pl-c1">concat</span>([<span class="pl-smi">cipher</span>.<span class="pl-en">update</span>(buffer),<span class="pl-smi">cipher</span>.<span class="pl-en">final</span>()]);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-crypto-buffer-js-LC10" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> crypted;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-crypto-buffer-js-LC11" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-crypto-buffer-js-LC12" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-crypto-buffer-js-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">decrypt</span>(<span class="pl-smi">buffer</span>){</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-crypto-buffer-js-LC14" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> decipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createDecipher</span>(algorithm,password)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-crypto-buffer-js-LC15" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> dec <span class="pl-k">=</span> <span class="pl-smi">Buffer</span>.<span class="pl-c1">concat</span>([<span class="pl-smi">decipher</span>.<span class="pl-en">update</span>(buffer) , <span class="pl-smi">decipher</span>.<span class="pl-en">final</span>()]);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-crypto-buffer-js-LC16" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> dec;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-crypto-buffer-js-LC17" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-crypto-buffer-js-LC18" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-crypto-buffer-js-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> hw <span class="pl-k">=</span> <span class="pl-en">encrypt</span>(<span class="pl-k">new</span> <span class="pl-en">Buffer</span>(<span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>utf8<span class="pl-pds">"</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-crypto-buffer-js-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> outputs hello world</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-buffer-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-crypto-buffer-js-LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decrypt</span>(hw).<span class="pl-c1">toString</span>(<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>));</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/chris-rock/6cac4e422f29c28c9d88/raw/d90e75d5d257d69df3915b187f1483c243865c7d/crypto-buffer.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/chris-rock/6cac4e422f29c28c9d88#file-crypto-buffer-js">crypto-buffer.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="encrypt-and-decrypt-streams">Encrypt and decrypt&nbsp;streams</h3>
+<script src="./Encrypt and decrypt content with Nodejs - chris-rock_files/335f92742b497256982a.js"></script><link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/gist-embed-e93d89e26a0f00de2cd61bd63628a123.css"><div id="gist14281195" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-crypto-stream-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-crypto-stream-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-crypto-stream-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Part of https://github.com/chris-rock/node-crypto-examples</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-crypto-stream-js-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-crypto-stream-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Nodejs encryption of buffers</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-crypto-stream-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> crypto <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>crypto<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-crypto-stream-js-LC5" class="blob-code blob-code-inner js-file-line">    algorithm <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>aes-256-ctr<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-crypto-stream-js-LC6" class="blob-code blob-code-inner js-file-line">    password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>d6F3Efeq<span class="pl-pds">'</span></span>;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-crypto-stream-js-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-crypto-stream-js-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> fs <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>fs<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-crypto-stream-js-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> zlib <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>zlib<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-crypto-stream-js-LC10" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-crypto-stream-js-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> input file</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-crypto-stream-js-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> r <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">createReadStream</span>(<span class="pl-s"><span class="pl-pds">'</span>file.txt<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-crypto-stream-js-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> zip content</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-crypto-stream-js-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> zip <span class="pl-k">=</span> <span class="pl-smi">zlib</span>.<span class="pl-en">createGzip</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-crypto-stream-js-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> encrypt content</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-crypto-stream-js-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> encrypt <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createCipher</span>(algorithm, password);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-crypto-stream-js-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> decrypt content</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-crypto-stream-js-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> decrypt <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createDecipher</span>(algorithm, password)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-crypto-stream-js-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> unzip content</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-crypto-stream-js-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> unzip <span class="pl-k">=</span> <span class="pl-smi">zlib</span>.<span class="pl-en">createGunzip</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-crypto-stream-js-LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> write file</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-crypto-stream-js-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> w <span class="pl-k">=</span> <span class="pl-smi">fs</span>.<span class="pl-en">createWriteStream</span>(<span class="pl-s"><span class="pl-pds">'</span>file.out.txt<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-crypto-stream-js-LC23" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-crypto-stream-js-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> start pipe</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-stream-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-crypto-stream-js-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-smi">r</span>.<span class="pl-en">pipe</span>(zip).<span class="pl-en">pipe</span>(encrypt).<span class="pl-en">pipe</span>(decrypt).<span class="pl-en">pipe</span>(unzip).<span class="pl-en">pipe</span>(w);</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/chris-rock/335f92742b497256982a/raw/2ece33ee515d6168323c952a58a3d867d0767634/crypto-stream.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/chris-rock/335f92742b497256982a#file-crypto-stream-js">crypto-stream.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<h3 id="use-gcm-for-authenticated-encryption">Use <span class="caps">GCM</span> for authenticated&nbsp;encryption</h3>
+<p>If you replace <code>aes-256-ctr</code> with <code>aes-256-gcm</code> you may think everything works as expected. Unfortunately this will result with a confusing error message: <code>TypeError: error:00000000:lib(0):func(0):reason(0)</code>. </p>
+<p>Authenticated encryption includes a hash of the encrypted content and helps you to identify manipulated encrypted&nbsp;content.</p>
+<p>You need to set the <a href="https://github.com/joyent/node/blob/857975d5e7e0d7bf38577db0478d9e5ede79922e/lib/crypto.js#L238-L245">authentication tag</a> via <code>decrypt.setAuthTag()</code>, which is currently only available if you use <code>crypto.createCipheriv(algorithm, key, iv)</code> with an <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a>. <span class="caps">GCM</span>’s security is dependent on choosing a unique initialization vector for each&nbsp;encryption.</p>
+<script src="./Encrypt and decrypt content with Nodejs - chris-rock_files/fe87dd35d6168512a2f7.js"></script><link rel="stylesheet" href="./Encrypt and decrypt content with Nodejs - chris-rock_files/gist-embed-e93d89e26a0f00de2cd61bd63628a123.css"><div id="gist14281203" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-crypto-gcm-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-crypto-gcm-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-crypto-gcm-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Nodejs encryption with GCM</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-crypto-gcm-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Does not work with nodejs v0.10.31</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-crypto-gcm-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> Part of https://github.com/chris-rock/node-crypto-examples</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-crypto-gcm-js-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-crypto-gcm-js-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> crypto <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>crypto<span class="pl-pds">'</span></span>),</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-crypto-gcm-js-LC6" class="blob-code blob-code-inner js-file-line">  algorithm <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>aes-256-gcm<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-crypto-gcm-js-LC7" class="blob-code blob-code-inner js-file-line">  password <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>3zTvzr3p67VC61jmV54rIYu1545x4TlY<span class="pl-pds">'</span></span>,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-crypto-gcm-js-LC8" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> do not use a global iv for production, </span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-crypto-gcm-js-LC9" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> generate a new one for each encryption</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-crypto-gcm-js-LC10" class="blob-code blob-code-inner js-file-line">  iv <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>60iP0h6vJoEa<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-crypto-gcm-js-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-crypto-gcm-js-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">encrypt</span>(<span class="pl-smi">text</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-crypto-gcm-js-LC13" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> cipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createCipheriv</span>(algorithm, password, iv)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-crypto-gcm-js-LC14" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> encrypted <span class="pl-k">=</span> <span class="pl-smi">cipher</span>.<span class="pl-en">update</span>(text, <span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-crypto-gcm-js-LC15" class="blob-code blob-code-inner js-file-line">  encrypted <span class="pl-k">+=</span> <span class="pl-smi">cipher</span>.<span class="pl-en">final</span>(<span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-crypto-gcm-js-LC16" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> tag <span class="pl-k">=</span> <span class="pl-smi">cipher</span>.<span class="pl-en">getAuthTag</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-crypto-gcm-js-LC17" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> {</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-crypto-gcm-js-LC18" class="blob-code blob-code-inner js-file-line">    content<span class="pl-k">:</span> encrypted,</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-crypto-gcm-js-LC19" class="blob-code blob-code-inner js-file-line">    tag<span class="pl-k">:</span> tag</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-crypto-gcm-js-LC20" class="blob-code blob-code-inner js-file-line">  };</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-crypto-gcm-js-LC21" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-crypto-gcm-js-LC22" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-crypto-gcm-js-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-k">function</span> <span class="pl-en">decrypt</span>(<span class="pl-smi">encrypted</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-crypto-gcm-js-LC24" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> decipher <span class="pl-k">=</span> <span class="pl-smi">crypto</span>.<span class="pl-en">createDecipheriv</span>(algorithm, password, iv)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-crypto-gcm-js-LC25" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">decipher</span>.<span class="pl-en">setAuthTag</span>(<span class="pl-smi">encrypted</span>.<span class="pl-smi">tag</span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-crypto-gcm-js-LC26" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> dec <span class="pl-k">=</span> <span class="pl-smi">decipher</span>.<span class="pl-en">update</span>(<span class="pl-smi">encrypted</span>.<span class="pl-c1">content</span>, <span class="pl-s"><span class="pl-pds">'</span>hex<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-crypto-gcm-js-LC27" class="blob-code blob-code-inner js-file-line">  dec <span class="pl-k">+=</span> <span class="pl-smi">decipher</span>.<span class="pl-en">final</span>(<span class="pl-s"><span class="pl-pds">'</span>utf8<span class="pl-pds">'</span></span>);</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-crypto-gcm-js-LC28" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">return</span> dec;</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-crypto-gcm-js-LC29" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-crypto-gcm-js-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-crypto-gcm-js-LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> hw <span class="pl-k">=</span> <span class="pl-en">encrypt</span>(<span class="pl-s"><span class="pl-pds">"</span>hello world<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-crypto-gcm-js-LC32" class="blob-code blob-code-inner js-file-line">  <span class="pl-c"><span class="pl-c">//</span> outputs hello world</span></td>
+      </tr>
+      <tr>
+        <td id="file-crypto-gcm-js-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-crypto-gcm-js-LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-en">decrypt</span>(hw));</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/chris-rock/fe87dd35d6168512a2f7/raw/a5278b4389ea8cee4d7f87f47901f3655b4d8d60/crypto-gcm.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/chris-rock/fe87dd35d6168512a2f7#file-crypto-gcm-js">crypto-gcm.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+<p>The new <span class="caps">GCM</span> mode is available in nodejs 0.11. Try it with <a href="https://github.com/visionmedia/n">n</a>&nbsp;via</p>
+<pre><code>npm install -g n
+sudo n 0.11.13
+n use 0.11.13 crypto-gcm.js
+</code></pre><p>Also take a look at the <a href="https://github.com/joyent/node/blob/master/test/simple/test-crypto-authenticated.js#L44-L64">nodejs tests</a> for more tests with different&nbsp;setups.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I hope the samples help you to get started with nodejs&nbsp;encryption.</p>
+<p>If you have any questions contact me via <a href="https://twitter.com/chri_hartmann">Twitter @chri_hartmann</a> or <a href="https://github.com/chris-rock">Github</a></p>
+<p>See&nbsp;also:</p>
+<ul>
+<li><a href="http://lollyrock.com/articles/nodejs-sha512/"><span class="caps">SHA</span> 512 Hashs with&nbsp;nodejs</a></li>
+<li><a href="http://lollyrock.com/articles/express4-file-upload/">Simple file uploads with Express&nbsp;4</a></li>
+<li><a href="http://lollyrock.com/articles/content-security-policy/">Applied Content Security Policy for Nginx and&nbsp;Nodejs</a></li>
+<li><a href="http://arlimus.github.io/articles/ready.for.es6/">Ready for&nbsp;<span class="caps">ES6</span>?</a></li>
+</ul>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="social center">
+          <div class="network"><a href="javascript:window.location=%22http://news.ycombinator.com/submitlink?u=%22+encodeURIComponent(document.location)+%22&amp;amp;t=%22+encodeURIComponent(document.title)" class="hn-link">Discuss on Hacker News</a></div>
+          <div class="network twitter"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/tweet_button.8e64fb971a1b22efbf633db166113ae6.en.html" style="position: static; visibility: visible; width: 61px; height: 20px;"></iframe></div>
+        </div>
+        <div class="nav"><a href="http://lollyrock.com/">« Full blog</a></div>
+        <section class="about">
+        </section>
+        <section class="copy">
+          <p>© 2018 Christoph Hartmann — powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+  
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/widget_iframe.8e64fb971a1b22efbf633db166113ae6.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Encrypt and decrypt content with Nodejs - chris-rock_files/saved_resource.html"></iframe></body></html>

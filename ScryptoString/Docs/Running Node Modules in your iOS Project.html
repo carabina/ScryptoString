@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://blog.risingstack.com/running-node-modules-in-your-ios-project/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./Running Node Modules in your iOS Project_files/track"></script><script async="" src="./Running Node Modules in your iOS Project_files/fbds.js"></script><script type="text/javascript" async="" src="./Running Node Modules in your iOS Project_files/analytics.js"></script><script type="text/javascript" src="./Running Node Modules in your iOS Project_files/visit"></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Running Node Modules  in your iOS Project</title>
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="1VZwYFsfiVb7eRGn7Hx4CQN2PHLUmbYZnlJOXrBaCPA">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.risingstack.com/assets/favicons/apple-touch-icon.png?v=55bcc5a221">
+<link rel="icon" type="image/png" href="https://blog.risingstack.com/assets/favicons/favicon-32x32.png?v=55bcc5a221" sizes="32x32">
+<link rel="icon" type="image/png" href="https://blog.risingstack.com/assets/favicons/favicon-16x16.png?v=55bcc5a221" sizes="16x16">
+<link rel="manifest" href="https://blog.risingstack.com/assets/favicons/manifest.json?v=55bcc5a221">
+<link rel="mask-icon" href="https://blog.risingstack.com/assets/favicons/safari-pinned-tab.svg?v=55bcc5a221" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<link href="./Running Node Modules in your iOS Project_files/css" rel="stylesheet">
+<link rel="stylesheet" href="./Running Node Modules in your iOS Project_files/default.min.css">
+<link href="./Running Node Modules in your iOS Project_files/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./Running Node Modules in your iOS Project_files/main.css">
+<meta name="description" content="Unleash the full power of NPM and JavaScript in your iOS projects using Browserify.">
+<link rel="shortcut icon" href="https://blog.risingstack.com/favicon.png" type="image/png">
+<link rel="canonical" href="https://blog.risingstack.com/running-node-modules-in-your-ios-project/">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta property="og:site_name" content="RisingStack Engineering - Node.js Tutorials &amp; Resources">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running Node Modules  in your iOS Project">
+<meta property="og:description" content="Unleash the full power of NPM and JavaScript in your iOS projects using Browserify.">
+<meta property="og:url" content="https://blog.risingstack.com/running-node-modules-in-your-ios-project/">
+<meta property="article:published_time" content="2014-09-24T11:39:15.000Z">
+<meta property="article:modified_time" content="2017-08-22T12:37:42.000Z">
+<meta property="article:tag" content="Node.js Tutorials for Beginners">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Running Node Modules  in your iOS Project">
+<meta name="twitter:description" content="Unleash the full power of NPM and JavaScript in your iOS projects using Browserify.">
+<meta name="twitter:url" content="https://blog.risingstack.com/running-node-modules-in-your-ios-project/">
+<meta name="twitter:label1" content="Written by">
+<meta name="twitter:data1" content="Péter Márton">
+<meta name="twitter:label2" content="Filed under">
+<meta name="twitter:data2" content="Node.js Tutorials for Beginners">
+<meta name="twitter:site" content="@risingstack">
+<meta name="twitter:creator" content="@slashdotpeter">
+<script async="" src="./Running Node Modules in your iOS Project_files/gtm.js"></script><script id="twitter-wjs" src="./Running Node Modules in your iOS Project_files/widgets.js"></script><script type="text/javascript" async="" src="./Running Node Modules in your iOS Project_files/drip.js"></script><script type="text/javascript" async="" defer="" src="./Running Node Modules in your iOS Project_files/mailchimp-v1.js"></script><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "RisingStack Engineering - Node.js Tutorials &amp; Resources",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://risingstack-blog.s3.amazonaws.com/2016/Mar/risingstack_logo-1457001742686.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Péter Márton",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://blog.risingstack.com/content/images/2017/11/peter-marton.jpg",
+            "width": 100,
+            "height": 100
+        },
+        "url": "https://blog.risingstack.com/author/peter-marton/",
+        "sameAs": [
+            "https://twitter.com/slashdotpeter"
+        ]
+    },
+    "headline": "Running Node Modules  in your iOS Project",
+    "url": "https://blog.risingstack.com/running-node-modules-in-your-ios-project/",
+    "datePublished": "2014-09-24T11:39:15.000Z",
+    "dateModified": "2017-08-22T12:37:42.000Z",
+    "keywords": "Node.js Tutorials for Beginners",
+    "description": "Unleash the full power of NPM and JavaScript in your iOS projects using Browserify.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.risingstack.com/"
+    }
+}
+    </script>
+<script type="text/javascript" src="./Running Node Modules in your iOS Project_files/ghost-sdk.min.js"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "fc33411dcae2"
+});
+</script>
+<meta name="generator" content="Ghost 1.21">
+<link rel="alternate" type="application/rss+xml" title="RisingStack Engineering - Node.js Tutorials &amp; Resources" href="https://blog.risingstack.com/rss/">
+
+<script type="text/javascript">
+	var $mcGoal = {'settings':{'uuid':'510d6f81b948a39e0d9c32ec3','dc':'us9'}};
+	(function() {
+		 var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+		sp.src = 'https://resources.risingstack.com/mailchimp-v1.js'
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+	})(); 
+</script>
+<script>
+(function (){
+    var tests = [
+    ]
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        var $topCta = $('#top-cta')
+        $topCta.html(tests[Math.floor(Math.random() * tests.length)])
+    });
+}())
+</script>
+<script type="text/javascript" async="" src="./Running Node Modules in your iOS Project_files/embed.js"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.d0448456a5f42b8df8cea2098aa3acf3.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.037f55c32651d22255e90738c195e946.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.44672f4cc4bed783e5e2f3cb12270277.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script type="text/javascript" charset="utf-8" async="" src="./Running Node Modules in your iOS Project_files/button.7db838345f9545c91ea4497f64abb814.js"></script><style></style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="156085c5-0017-4150-b225-a731ad248f38/service" src="./Running Node Modules in your iOS Project_files/service.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="services/services" src="./Running Node Modules in your iOS Project_files/services.js"></script><style>@-webkit-keyframes insQ_100 {  from {  outline: 1px solid transparent  } to {  outline: 0px solid transparent }  }
+#menufication-top { animation-duration: 0.001s; animation-name: insQ_100; -webkit-animation-duration: 0.001s; -webkit-animation-name: insQ_100;  } </style><link type="text/css" rel="stylesheet" href="./Running Node Modules in your iOS Project_files/listbuilder-popup.css"><link type="text/css" rel="stylesheet" href="./Running Node Modules in your iOS Project_files/sumome-share-client.css"></head>
+<body class="post-template tag-node-js-tutorials-for-beginners" style="" cz-shortcut-listen="true"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-edgeless cc-bottom cc-color-override--1836051700 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://blog.risingstack.com/privacy-policy/" target="_blank">Learn more</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+<div class="progress-container">
+<span class="progress-bar" style="width: 0%;"></span>
+</div>
+<header class="site-header text-center">
+<div class="inline-block valign-middle">
+<a class="inline-block margin-left-2 margin-top-1" href="https://blog.risingstack.com/">
+<img class="margin-1" src="./Running Node Modules in your iOS Project_files/risingstack-logo-2017.svg" alt="RisingStack" height="45" width="150">
+</a>
+</div>
+<button class="inline-block valign-middle" id="btn-nav"></button>
+<nav class="inline-block valign-middle" id="main-nav">
+<hr>
+<ul class="nav-items">
+<li><a href="https://blog.risingstack.com/">Home</a></li>
+<li><a target="_blank" href="https://risingstack.com/">About Us</a></li>
+<li class="dropdown-toggle">
+<a href="https://blog.risingstack.com/running-node-modules-in-your-ios-project/#">Trainings<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a target="_blank" href="https://risingstack.com/trainings#designingmicroservicesarchitectures">Designing Microservices Architectures</a></li>
+<li><a target="_blank" href="https://risingstack.com/trainings#handlingmicroserviceswithkubernetes">Handling Microservices with Kubernetes</a></li>
+<li><a target="_blank" href="https://risingstack.com/trainings#modernfrontendwithreact">Modern Front-End with React</a></li>
+<li><a target="_blank" href="https://risingstack.com/trainings#buildingcomplexappswithangular">Building Complex Apps with Angular</a></li>
+<li><a target="_blank" href="https://risingstack.com/trainings#nodejsfundamentals">Node.js Fundamentals</a></li>
+</ul>
+</li>
+<li class="dropdown-toggle">
+<a href="https://blog.risingstack.com/running-node-modules-in-your-ios-project/#">Services<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a target="_blank" href="https://risingstack.com/nodejs-development-consulting-services?utm_source=rsblog&amp;utm_medium=header">Node.js Consulting &amp; Development</a></li>
+<li><a target="_blank" href="https://risingstack.com/nodejs-support?utm_source=rsblog&amp;utm_medium=header">24 / 7 Node.js Support</a></li>
+<li><a target="_blank" href="https://risingstack.com/kubernetes-consulting-training?utm_source=rsblog&amp;utm_medium=header">Kubernetes Consulting</a></li>
+</ul>
+</li>
+<li><a target="_blank" href="https://risingstack.com/resources?utm_source=rsblog&amp;utm_medium=header">Resources</a></li>
+</ul>
+<div style="clear:both"></div>
+</nav>
+</header>
+<div style="height: 50px;"></div>
+<aside class="sidebar-column position-fixed ">
+<div class="sidebar-box bg-transparent" id="twitch-notification" width="230px" height="200px" style="margin-bottom: 0px; display: none;">
+</div>
+<div class="sidebar-box">
+<h4 class="margin-0" style="background-color: #2c3e50; color: white; margin-bottom: 5px"><a target="_blank" style="color: white" href="https://risingstack.com/?utm_source=rsblog&amp;utm_medium=sidebar">Hire RisingStack</a></h4>
+<a target="_blank" class="list-item font-small margin-left-2 margin-bottom-2" href="https://risingstack.com/nodejs-development-consulting-services?utm_source=rsblog&amp;utm_medium=sidebar">
+<span class="square grey margin-right-1"></span>Outsourced Development
+</a>
+<a target="_blank" class="list-item font-small margin-left-2 margin-bottom-2" href="https://risingstack.com/nodejs-support?utm_source=rsblog&amp;utm_medium=sidebar">
+<span class="square grey margin-right-1"></span>24/7 Node.js Support
+</a>
+<a target="_blank" class="list-item font-small margin-left-2 margin-bottom-2" href="https://risingstack.com/trainings?utm_source=rsblog&amp;utm_medium=sidebar">
+<span class="square grey margin-right-1"></span>Training (fullstack &amp; devops)
+</a>
+</div>
+
+
+<div class="sidebar-box bg-transparent" style="margin-bottom: 0">
+<iframe width="230px" height="400px" frameborder="0" src="./Running Node Modules in your iOS Project_files/saved_resource.html"></iframe>
+</div>
+</aside>
+<main>
+<div class="main-inner main-inner-post">
+<section class="padding-top-3" style="padding-top: 0px;" id="results"></section>
+<article class="post-page post tag-node-js-tutorials-for-beginners">
+<div class="hide-tablet-and-smaller">
+<p class="post-route font-smaller"><a href="https://blog.risingstack.com/">Blog</a> &gt; <b><a href="https://blog.risingstack.com/tag/node-js-tutorials-for-beginners/">Node.js Tutorials for Beginners</a></b></p>
+<section class="post-meta-post-page">
+<span class="post-time">
+<i class="fa fa-calendar"></i>
+<time datetime="2014-09-24" class="timeago">4 years ago</time>
+<time datetime="2014-09-24" class="fulldate">September 24th, 2014</time>
+</span>
+</section>
+<div style="clear:both"></div>
+</div>
+<header class="post-header">
+<h1 class="post-title">Running Node Modules in your iOS Project</h1>
+<section>
+<img class="author inline-block valign-middle" alt="Péter Márton&#39;s Picture" src="./Running Node Modules in your iOS Project_files/peter-marton.jpg">
+<span class="inline-block valign-middle font-smaller">by <a class="author-url" href="https://blog.risingstack.com/author/peter-marton"><b>Péter Márton</b></a>(<a target="_blank" href="https://twitter.com/@slashdotpeter">@slashdotpeter</a>), CTO at RisingStack, microservices and brewing beer with Node.js</span>
+</section>
+</header>
+<section class="post-content">
+<div class="kg-card-markdown"><p>Some day everybody loses their minds. I have lost mine last weekend...</p>
+<p>Or not? I have decided that I will run one of my <a href="https://www.npmjs.org/package/liquid-pid">npm modules</a> on my iPhone.<br>
+Is it possible? The short answer is yes, for the longer answer you should read this article. ;)</p>
+<h2 id="background">Background</h2>
+<p>Apple has introduced a native Objective-C API for JavaScriptCore in iOS 7 and you can use it in your iOS 8 Swift projects too. One can have multiple JavaScript virtual machines and <a href="https://www.infinum.co/the-capsized-eight/articles/running-javascript-in-an-ios-application-with-javascriptcore">contexts</a> too.</p>
+<p>What does it mean in practice?<br>
+You can evaluate any kind of JS code in your iOS application, call your methods, pass arguments and use the built-in JavaScript objects and methods like <code>JSON.parse</code>.</p>
+<p>We have this super cool Node.js thing with the module system and we can transform our Node code with Browserify or WebPack to make it runnable in the browser. And this means that we can run this transformed code in our iOS application with the built-in JavaScriptCore of iOS. We have to do only one trick, assign <code>this</code> to <code>window</code>, because we do not have <code>window</code> in the core.</p>
+<h2 id="thehow">The how</h2>
+<h4 id="1browserify">1. Browserify</h4>
+<p>After you wrote your JavaScript code and exported your methods and variables with <code>global.myMethod = function () {}</code>, you should transform it with <a href="http://browserify.org/">Browserify</a>.</p>
+<p>For this install Browserify with npm and browserify your code:</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">install</span> <span class="hljs-selector-tag">-g</span> <span class="hljs-selector-tag">browserify</span>
+<span class="hljs-selector-tag">browserify</span> <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.js</span> <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">bundle</span><span class="hljs-selector-class">.js</span>
+</code></pre>
+<h4 id="2theiosside">2. The iOS side</h4>
+<p>We need a JavaScript environment to run our code, which can be done in the following way:</p>
+<p><em>Do not forget to create a <code>window</code> variable and assign <code>this</code> to it, Browserify needs this.</em></p>
+<pre><code class="hljs sql">// <span class="hljs-keyword">load</span> the javascript <span class="hljs-keyword">file</span> <span class="hljs-keyword">as</span> a <span class="hljs-keyword">String</span>
+let <span class="hljs-keyword">path</span> = NSBundle.mainBundle().pathForResource(<span class="hljs-string">"bundle"</span>, ofType: <span class="hljs-string">"js"</span>)
+<span class="hljs-keyword">var</span> jsSource: <span class="hljs-keyword">String</span>! = String.stringWithContentsOfFile(<span class="hljs-keyword">path</span>!)
+
+// Make browserify <span class="hljs-keyword">work</span>
+jsSource = <span class="hljs-string">"var window = this; \(jsSource)"</span>
+
+// <span class="hljs-keyword">create</span> a javascript <span class="hljs-keyword">context</span> environment <span class="hljs-keyword">and</span> <span class="hljs-keyword">evaluate</span> the script
+<span class="hljs-keyword">var</span> <span class="hljs-keyword">context</span> = JSContext()
+
+context.evaluateScript(jsSource)
+</code></pre>
+<p>The JavaScript object and the stringified JSON representation:<br>
+<img src="./Running Node Modules in your iOS Project_files/Screen-Shot-2014-09-23-at-19-28-37.png" alt="JavaScript object"></p>
+<p>The parsed JSON as a Swift dictionary output:<br>
+<img src="./Running Node Modules in your iOS Project_files/Screen-Shot-2014-09-23-at-19-24-03.png" alt="parsed JSON dictionary"></p>
+<h4 id="3callingjavascriptmethods">3. Calling Javascript methods</h4>
+<p>You can get a reference for JavaScript objects with the <code>objectForKeyedSubscript()</code> and call your methods with the <code>callWithArguments([])</code> with any piece of arguments.</p>
+<pre><code class="hljs javascript"><span class="hljs-comment">// JSON parsing</span>
+<span class="hljs-keyword">let</span> calculate = context.objectForKeyedSubscript(<span class="hljs-string">"calculate"</span>)
+<span class="hljs-keyword">let</span> <span class="hljs-built_in">JSON</span> = context.objectForKeyedSubscript(<span class="hljs-string">"JSON"</span>)
+<span class="hljs-keyword">let</span> JSONparse = <span class="hljs-built_in">JSON</span>.objectForKeyedSubscript(<span class="hljs-string">"parse"</span>)
+<span class="hljs-keyword">let</span> JSONString = <span class="hljs-string">"{\"foo\":\"bar\",\"bar\":[1,2],\"world\":{\"hello\":4,\"foo\":\"bar\"}}"</span>
+
+<span class="hljs-keyword">let</span> parsed = JSONparse.callWithArguments([JSONString])
+<span class="hljs-keyword">let</span> parsedDic = parsed.toDictionary()
+</code></pre>
+<h2 id="okwhatnow">Ok, what now?</h2>
+<p>Can this be a next step in the world of <a href="http://blog.risingstack.com/from-angularjs-to-react-the-isomorphic-way/">isomorphic JavaScript</a>? Does anybody use it in production to share model, validation or any other business logic between the server and the client?</p>
+<p>... and yes my <a href="https://www.npmjs.org/package/liquid-pid">liquid-pid</a> npm module works perfectly in this way ;)</p>
+<p><strong>You can find the sample the code <a href="https://github.com/RisingStack/Swiftify-iOS">here</a>.</strong></p>
+<p>The liquid-pid PWM's output for temperature change visualized with <a href="https://github.com/zemirco/swift-linechart">swift-linechart</a>:</p>
+<p><img src="./Running Node Modules in your iOS Project_files/Screen-Shot-2014-09-23-at-19-22-27.png" alt="Node.js code on iOS"></p>
+<h2 id="recommendedreading">Recommended reading</h2>
+<ul>
+<li><a href="http://blog.risingstack.com/from-angularjs-to-react-the-isomorphic-way/">Isomorphic Javascript - From AngularJS to React</a></li>
+<li><a href="http://blog.risingstack.com/brewfactory-full-stack-homebrew-with-iot/">PWM in action: Homebrewing with Node.js</a></li>
+</ul>
+</div>
+<center>
+<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./Running Node Modules in your iOS Project_files/follow_button.8e64fb971a1b22efbf633db166113ae6.en.html" style="position: static; visibility: visible; width: 263px; height: 28px;" data-screen-name="RisingStack"></iframe>
+</center>
+</section>
+<footer class="post-footer-post-page">
+<div class="tags">
+<p><strong>TAGS:</strong></p>
+<a href="https://blog.risingstack.com/tag/node-js-tutorials-for-beginners/">Node.js Tutorials for Beginners</a>
+</div>
+</footer>
+<div class="bottom-navigation">
+<span class="font-weight-bold">Read more from us:</span>
+<ul style="margin: 0px;">
+<li>
+<a class="post-nav-item post-nav-prev" href="https://blog.risingstack.com/continuous-deployment-of-node-js-applications/">Continuous Deployment of Node.js Applications</a>
+</li>
+<li>
+<a class="post-nav-item post-nav-next" href="https://blog.risingstack.com/node-js-security-tips/">Node.js Security Tips</a>
+</li>
+</ul>
+</div>
+<div class="text-center">
+<a data-sumome-listbuilder-id="b4000942-80ee-40b2-955b-7e4bdda02b9a" style="padding: 6px 13px;" class="button hide-desktop" href="http://risingstack.us9.list-manage.com/subscribe/post?u=510d6f81b948a39e0d9c32ec3&amp;id=02a6a69990" target="_blank" data-sumome-trigger="true">
+Get early access to our posts
+</a>
+</div>
+<section class="post-comments">
+<div id="disqus_thread"><iframe id="dsq-app3475" name="dsq-app3475" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Running Node Modules in your iOS Project_files/saved_resource(2).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 384px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'risingstackblog';      
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+<noscript>Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+
+</section>
+</article>
+</div>
+</main>
+<footer class="site-footer">
+<div class="row group">
+<div class="col">
+<h4>Blog</h4>
+<a href="https://blog.risingstack.com/articles" target="_blank">Best articles</a>
+<a href="https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Node Hero Tutorials</a>
+<a href="https://blog.risingstack.com/nodejs-at-scale-npm-best-practices/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Node.js at Scale Tutorials</a>
+</div>
+<div class="col">
+<h4>Resources</h4>
+<a href="https://node-checklist.risingstack.com/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Node.js Maturity Checklist</a>
+<a href="https://trace.risingstack.com/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Trace by RisingStack - Node.js Monitoring</a>
+<a href="https://risingstack.com/resources/nodejs-is-enterprise-ready?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Node.js is Enterprise Ready</a>
+<a href="https://community.risingstack.com/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">RisingStack Community</a>
+<a href="https://news.risingstack.com/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">Node.js Daily</a>
+</div>
+<div class="col">
+<h4>Connect</h4>
+<a href="https://risingstack.com/?utm_source=rsblog&amp;utm_medium=footer" target="_blank">RisingStack.com</a>
+<a href="https://twitter.com/risingstack" target="_blank">Twitter</a>
+<a href="https://github.com/risingstack" target="_blank">Github</a>
+<a href="https://facebook.com/risingstack" target="_blank">Facebook</a>
+</div>
+</div>
+<div class="text-center opacity-half">
+We ♥ Node.js © RisingStack, Inc. 2017 | RisingStack® and Trace by RisingStack® are registered trademarks of RisingStack, Inc.
+</div>
+</footer>
+<script>
+    console.log("______  _       _                _____  _                 _    \n| ___ \\(_)     (_)              /  ___|| |               | |   \n| |_/ / _  ___  _  _ __    __ _ \\ `--. | |_   __ _   ___ | | __\n|    / | |/ __|| || '_ \\  / _` | `--. \\| __| / _` | / __|| |/ /\n| |\\ \\ | |\\__ \\| || | | || (_| |/\\__/ /| |_ | (_| || (__ |   < \n\\_| \\_||_||___/|_||_| |_| \\__, |\\____/  \\__| \\__,_| \\___||_|\\_\\\n                           __/ |                               \n                          |___/                                \n");
+    console.log("You like to look under the hood? Why not join us? https://risingstack.workable.com")
+</script>
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '3044742';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//resources.risingstack.com/js/drip.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+<script data-cfasync="true" type="text/javascript" src="./Running Node Modules in your iOS Project_files/jquery-3.1.1.min.js"></script>
+<script src="./Running Node Modules in your iOS Project_files/jquery.ghostHunter.min.js"></script>
+<script src="./Running Node Modules in your iOS Project_files/jquery.autocomplete.min.js"></script>
+<script data-cfasync="true" type="text/javascript" src="./Running Node Modules in your iOS Project_files/highlight-9.9.0.min.js"></script>
+<script data-cfasync="true" type="text/javascript" src="./Running Node Modules in your iOS Project_files/fbds(1).js"></script>
+<script data-cfasync="true" type="text/javascript" src="./Running Node Modules in your iOS Project_files/index.js"></script>
+
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-KV8B2T"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KV8B2T');</script>
+
+<script>
+  var loadDeferredStyles = function() {
+    var addStylesNode = document.getElementById("deferred-styles");
+    var replacement = document.createElement("div");
+    replacement.innerHTML = addStylesNode.textContent;
+    document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+  else window.addEventListener('load', loadDeferredStyles);
+</script>
+<link rel="stylesheet" type="text/css" href="./Running Node Modules in your iOS Project_files/cookieconsent.min.css">
+<script src="./Running Node Modules in your iOS Project_files/cookieconsent.min.js"></script>
+<script src="./Running Node Modules in your iOS Project_files/handle-twitch-notification.js"></script>
+
+
+<iframe style="display: none;" src="./Running Node Modules in your iOS Project_files/saved_resource(3).html"></iframe><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Running Node Modules in your iOS Project_files/widget_iframe.8e64fb971a1b22efbf633db166113ae6.html" title="Twitter settings iframe" style="display: none;"></iframe><div style="display: none; visibility: hidden;"><script>document.write('\x3cscript src\x3d"//load.sumome.com/" data-sumo-site-id\x3d"19a728093fe313666b234d080fe8c55098192f659a47e6fbec25d024c174f226" async\x3d"async"\x3e\x3c/script\x3e');</script><script src="./Running Node Modules in your iOS Project_files/saved_resource" data-sumo-site-id="19a728093fe313666b234d080fe8c55098192f659a47e6fbec25d024c174f226" async="async"></script></div><script type="text/javascript" id="">(function(){var a=window._fbq||(window._fbq=[]);if(!a.loaded){var b=document.createElement("script");b.async=!0;b.src="//connect.facebook.net/en_US/fbds.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);a.loaded=!0}a.push(["addPixelId","1412312612411866"])})();window._fbq=window._fbq||[];window._fbq.push(["track","PixelInitialized",{}]);</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1412312612411866&amp;amp;ev=PixelInitialized"&gt;</noscript><iframe id="sumome-jquery-iframe" title="Sumo Hidden Content" style="display: none;" src="./Running Node Modules in your iOS Project_files/saved_resource(4).html"></iframe><script type="text/javascript" src="./Running Node Modules in your iOS Project_files/saved_resource(1)"></script><a href="javascript:void(0);" title="Sumo" style="background-color: rgb(0, 115, 183); border-radius: 3px 0px 0px 3px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px; position: fixed; z-index: 2147483647; padding: 0px; width: 44px; height: 40px; text-indent: -10000px; opacity: 1; display: none !important;"><span style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Sumo</span><span style="display:block;width:40px;height:40px;background:white;margin-left:4px;-webkit-border-radius: 3px 0 0 3px;-moz-border-radius: 3px 0 0 3px;-ms-border-radius: 3px 0 0 3px;-o-border-radius: 3px 0 0 3px;border-radius: 3px 0 0 3px;background-repeat:no-repeat;background-position:8px 8px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDQ3MUVFMDFFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDQ3MUVFMDBFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MWQ0NjIyOGEtNzVmNi00ZGU0LThiY2MtYTg3NTY0ZDI2MWE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+8JtvywAAAKhQTFRFzOPxSJvLA3W4Mo7FBna5w97u8vj7EHy8a67VhbzdsdTpVaLPh73d9/v9C3m6QZfJbq/WXKbR3u32JIfB3ez1KorDir/eBHW4+/3+rtPoZarUG4K/LIvDDnu7ocvkf7nbdrTY9fr8E328WKPQO5PITJ3MPpXJstXptdbq+Pv9cbHXaq3VU6HOkMLgnMnjDHq62uv1/P3+6/T53Oz1cLDX/f7+AHO3////ptOZ5QAAADh0Uk5T/////////////////////////////////////////////////////////////////////////wA7XBHKAAAAmUlEQVR42sSRRxLCMAxFRSq9907ovebr/jdDMWYGxmZL3sIqbyFbJv4B/VlkVlerKALTD3G46Mx3AOR1UZ/TsDxW6W0gfYRNVfTCFu2AWpAMgMItMW+zQJU2UjWI29D0+e5KWNPMk+A9Om+B/UgOJyCuwMJCrpuziYkIsglfRByZ/XM3eXnBFEu1kpMpjq9dxQYp/OAXTwEGAB7Rc1xVnPemAAAAAElFTkSuQmCC);"></span></a><iframe style="display: none;" src="./Running Node Modules in your iOS Project_files/saved_resource(5).html"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Running Node Modules in your iOS Project_files/saved_resource(6).html"></iframe><div style="position:fixed;top:0;left:0;overflow:hidden;"><label for="focus_retriever" style="position:absolute;left:-1000px;">Focus Retriever</label><input style="position:absolute;left:-1000px;" type="text" name="focus_retriever" value="" id="focus_retriever" readonly="true"></div><div class="sumome-share-client-wrapper sumome-share-client-wrapper-right-page sumome-share-client-light sumome-share-client-medium" style="top: 288px;"><div class="sumome-share-client-show"><span></span></div><div data-sumome-share-pos="rp" class="sumome-share-client sumome-share-client-right-page sumome-share-client-light sumome-share-client-medium"><div class="sumome-share-client-animated sumome-share-client-share sumome-share-client-share-share sumome-share-client-count" data-sumome-share="share" style="background: rgb(255, 255, 255); color: black; margin-bottom: 2px;"><span style="bottom: auto; top: 11px;"><strong>7</strong><br>Shares</span></div><a title="Twitter" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="twitter" href="javascript:void(0);" style="background: rgb(0, 172, 237); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/twitter-white-60.png" alt="Twitter"></a><a title="YC Hacker News" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="ychackernews" href="javascript:void(0);" style="background: rgb(252, 102, 32); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/ychackernews-white-60.png" alt="YC Hacker News"></a><a title="Pocket" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="pocket" href="javascript:void(0);" style="background: rgb(238, 64, 86); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/pocket-white-60.png" alt="Pocket"></a><a title="Facebook" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="facebook" href="javascript:void(0);" style="background: rgb(59, 89, 152); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/facebook-white-60.png" alt="Facebook"></a><a title="Reddit" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="reddit" href="javascript:void(0);" style="background: rgb(255, 87, 0); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/reddit-white-60.png" alt="Reddit"></a><a title="Flipboard" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="flipboard" href="javascript:void(0);" style="background: rgb(204, 7, 19); color: rgb(255, 255, 255); margin-bottom: 2px;"><img src="./Running Node Modules in your iOS Project_files/flipboard-white-60.png" alt="Flipboard"></a></div><div class="sumome-share-client-hide"><span></span></div></div><img src="chrome-extension://jafmfknfnkoekkdocjiaipcnmkklaajd/img/error_38.png" title="Some errors occurred on this page. Click to see details." style="position: fixed !important; bottom: 10px !important; right: 10px !important; cursor: pointer !important; z-index: 2147483647 !important; width: 38px !important; height: 38px !important; min-height: 38px !important; min-width: 38px !important; max-height: 38px !important; max-width: 38px !important;"></body></html>
