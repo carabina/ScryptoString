@@ -7,84 +7,84 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04799446B9D32DEFD88DF73EAC0361F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		6DBC43FA2CE6C6061942D5400AB4CB7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		9C7F5C1AA23C94608FB5863D64F17D17 /* Pods-Scryptonizer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1580AB33CB9EF66F6EF13496B916ED85 /* Pods-Scryptonizer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A01D076072223F5D3E33F11E11920AC6 /* Pods-Scryptonizer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8678F836EC590F35955C856D0D41F540 /* Pods-Scryptonizer-dummy.m */; };
-		E5864B5BA1570648060FCC5683410370 /* Pods-ScryptonizerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 27DC356A87D5F8B80247A6D24958C091 /* Pods-ScryptonizerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FC3E6C1364B9B53A68FC205D6DC4F355 /* Pods-ScryptonizerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6502F8741494BB62F606386948C1AD /* Pods-ScryptonizerTests-dummy.m */; };
+		1D51351BBAD16B4A9463AF3EED6792B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		7AFA1C1E05C9B08349A3589CDB222948 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		B72B30982E54F29E9051637BAA02BD4D /* Pods-ScryptoString-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B66349700B748FFB3E86F4C570B57710 /* Pods-ScryptoString-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3EF1D88CA0C9E456E2CCA613F51D743 /* Pods-ScryptoString-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60483BEAA383560D8E2B479F406944FC /* Pods-ScryptoString-dummy.m */; };
+		EDE957724C0FD9B5FE7B08F18592F9DA /* Pods-ScryptoStringTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D3722391F5FA64FC7F365120C49291 /* Pods-ScryptoStringTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6DC5D7E0805CD2A2F9F8A7D929D5656 /* Pods-ScryptoStringTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D73F88C9FEBE6F6FB28FB29229FA98 /* Pods-ScryptoStringTests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0587A31002E39F717F6AD9D76CF0E619 /* Pods_ScryptonizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScryptonizerTests.framework; path = "Pods-ScryptonizerTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		06F989E8E4786F20C3EC3DAA6E382EEE /* Pods-Scryptonizer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Scryptonizer-acknowledgements.markdown"; sourceTree = "<group>"; };
-		10B5BAF92FF1FF6BAD0DAB84FFCD22E9 /* Pods-Scryptonizer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Scryptonizer-resources.sh"; sourceTree = "<group>"; };
-		1580AB33CB9EF66F6EF13496B916ED85 /* Pods-Scryptonizer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Scryptonizer-umbrella.h"; sourceTree = "<group>"; };
-		278F0495FA0935C7C1F5680542A5BF7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27DC356A87D5F8B80247A6D24958C091 /* Pods-ScryptonizerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScryptonizerTests-umbrella.h"; sourceTree = "<group>"; };
-		2C875E3B9754DC9AF9721445FE19C64C /* Pods-Scryptonizer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Scryptonizer.modulemap"; sourceTree = "<group>"; };
-		2CE23D4BB0E06994F31472D69914D282 /* Pods-ScryptonizerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScryptonizerTests-resources.sh"; sourceTree = "<group>"; };
-		3324C7C3749ED1F147D6B9F13DECE977 /* Pods-ScryptonizerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScryptonizerTests-frameworks.sh"; sourceTree = "<group>"; };
-		33E1773111211912FA0E5832E9CFB89D /* Pods-ScryptonizerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ScryptonizerTests.modulemap"; sourceTree = "<group>"; };
-		3A53BCAC72E03D2A21E72EA939A80F27 /* Pods-ScryptonizerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScryptonizerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		528314A265062EA1F1B7C5B9644A6EE7 /* Pods-Scryptonizer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Scryptonizer-acknowledgements.plist"; sourceTree = "<group>"; };
+		041CD5AE99E127DD45FE4431DF4B4AD8 /* Pods-ScryptoString-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScryptoString-acknowledgements.markdown"; sourceTree = "<group>"; };
+		214E64F717FF45DC670999548421CEC5 /* Pods-ScryptoStringTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScryptoStringTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		328F40B1B647EA4D098A34A61B97A5E7 /* Pods_ScryptoString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScryptoString.framework; path = "Pods-ScryptoString.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		360D2B1405680D2060537B115B6FF4FB /* Pods-ScryptoString.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptoString.debug.xcconfig"; sourceTree = "<group>"; };
+		45B1D2F84C38740D2BF4721B8CCF52D7 /* Pods-ScryptoStringTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScryptoStringTests-frameworks.sh"; sourceTree = "<group>"; };
+		4A3DAB4DD6B086D8621F09C0F90F9AE3 /* Pods-ScryptoStringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptoStringTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F767AB42454FEDE7F8C3BC34D4654D1 /* Pods-ScryptoStringTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScryptoStringTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		60483BEAA383560D8E2B479F406944FC /* Pods-ScryptoString-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScryptoString-dummy.m"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7C73CC96EACDC323010D6E8569DAF363 /* Pods-Scryptonizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Scryptonizer.release.xcconfig"; sourceTree = "<group>"; };
-		8046E216625550D51A491B01336D94C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8678F836EC590F35955C856D0D41F540 /* Pods-Scryptonizer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Scryptonizer-dummy.m"; sourceTree = "<group>"; };
+		692248808BCD4295B6C05AA60B95D315 /* Pods-ScryptoString-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScryptoString-resources.sh"; sourceTree = "<group>"; };
+		6E62ED68B6342D13BA7BB0CCECE04811 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90FE52157386E721453089BC5D3B66B9 /* Pods-ScryptoString-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScryptoString-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1A8BD5B4E7299CE6CAC460D21E4AA8B /* Pods-ScryptonizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptonizerTests.release.xcconfig"; sourceTree = "<group>"; };
-		BDF534267876DF4A6BA273F2C2575196 /* Pods-Scryptonizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Scryptonizer.debug.xcconfig"; sourceTree = "<group>"; };
-		CE6502F8741494BB62F606386948C1AD /* Pods-ScryptonizerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScryptonizerTests-dummy.m"; sourceTree = "<group>"; };
-		CF808CB7498FA6F21CD1F88978A52696 /* Pods-ScryptonizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptonizerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E2921C69CAE8358F697CEA35BCC83614 /* Pods-ScryptonizerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScryptonizerTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F70AB976C2A2DA24F609439684931ADD /* Pods_Scryptonizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Scryptonizer.framework; path = "Pods-Scryptonizer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D73F88C9FEBE6F6FB28FB29229FA98 /* Pods-ScryptoStringTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScryptoStringTests-dummy.m"; sourceTree = "<group>"; };
+		9D3E1471A9200277B62B854B2A4F7DFE /* Pods_ScryptoStringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScryptoStringTests.framework; path = "Pods-ScryptoStringTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A567C98225971B8029C50CED6486BE57 /* Pods-ScryptoStringTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScryptoStringTests-resources.sh"; sourceTree = "<group>"; };
+		B66349700B748FFB3E86F4C570B57710 /* Pods-ScryptoString-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScryptoString-umbrella.h"; sourceTree = "<group>"; };
+		B7CBE9C1B41502583E9BE87F8967700D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB49899B35969ACF1776BE1F40BEF96B /* Pods-ScryptoStringTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ScryptoStringTests.modulemap"; sourceTree = "<group>"; };
+		D2FBB83CCE3398FC64EC50B0E21860AB /* Pods-ScryptoString.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptoString.release.xcconfig"; sourceTree = "<group>"; };
+		D84E6744EE5A123D5FFF4DD2680C035A /* Pods-ScryptoStringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScryptoStringTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9D3722391F5FA64FC7F365120C49291 /* Pods-ScryptoStringTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScryptoStringTests-umbrella.h"; sourceTree = "<group>"; };
+		EE9B74D16A07CEE596D84C189BCC91F0 /* Pods-ScryptoString.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ScryptoString.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DCAFF8E1686D2B953FB5A56A5A6A7A34 /* Frameworks */ = {
+		142D34ACA103B0C2C7B960F3DD0E34F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DBC43FA2CE6C6061942D5400AB4CB7E /* Foundation.framework in Frameworks */,
+				7AFA1C1E05C9B08349A3589CDB222948 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4A5B578017EEF55D88BEA1416DBFEBF /* Frameworks */ = {
+		8084DCDD7061AEC79C39415232B9E473 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04799446B9D32DEFD88DF73EAC0361F4 /* Foundation.framework in Frameworks */,
+				1D51351BBAD16B4A9463AF3EED6792B6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B0D1EE6B88BD73CDB6B0E9C6C150BE6 /* Targets Support Files */ = {
+		45D8D9BA58F864E4CF5F262F18919016 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6771A9C38B95DB5C1065A907F04ACF84 /* Pods-Scryptonizer */,
-				B19C7AA208FE996803EDB69237F58C19 /* Pods-ScryptonizerTests */,
+				328F40B1B647EA4D098A34A61B97A5E7 /* Pods_ScryptoString.framework */,
+				9D3E1471A9200277B62B854B2A4F7DFE /* Pods_ScryptoStringTests.framework */,
 			);
-			name = "Targets Support Files";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		6771A9C38B95DB5C1065A907F04ACF84 /* Pods-Scryptonizer */ = {
+		6F16F5F08894A0DBBA3A47CC5AF33A5B /* Pods-ScryptoString */ = {
 			isa = PBXGroup;
 			children = (
-				8046E216625550D51A491B01336D94C3 /* Info.plist */,
-				2C875E3B9754DC9AF9721445FE19C64C /* Pods-Scryptonizer.modulemap */,
-				06F989E8E4786F20C3EC3DAA6E382EEE /* Pods-Scryptonizer-acknowledgements.markdown */,
-				528314A265062EA1F1B7C5B9644A6EE7 /* Pods-Scryptonizer-acknowledgements.plist */,
-				8678F836EC590F35955C856D0D41F540 /* Pods-Scryptonizer-dummy.m */,
-				10B5BAF92FF1FF6BAD0DAB84FFCD22E9 /* Pods-Scryptonizer-resources.sh */,
-				1580AB33CB9EF66F6EF13496B916ED85 /* Pods-Scryptonizer-umbrella.h */,
-				BDF534267876DF4A6BA273F2C2575196 /* Pods-Scryptonizer.debug.xcconfig */,
-				7C73CC96EACDC323010D6E8569DAF363 /* Pods-Scryptonizer.release.xcconfig */,
+				B7CBE9C1B41502583E9BE87F8967700D /* Info.plist */,
+				EE9B74D16A07CEE596D84C189BCC91F0 /* Pods-ScryptoString.modulemap */,
+				041CD5AE99E127DD45FE4431DF4B4AD8 /* Pods-ScryptoString-acknowledgements.markdown */,
+				90FE52157386E721453089BC5D3B66B9 /* Pods-ScryptoString-acknowledgements.plist */,
+				60483BEAA383560D8E2B479F406944FC /* Pods-ScryptoString-dummy.m */,
+				692248808BCD4295B6C05AA60B95D315 /* Pods-ScryptoString-resources.sh */,
+				B66349700B748FFB3E86F4C570B57710 /* Pods-ScryptoString-umbrella.h */,
+				360D2B1405680D2060537B115B6FF4FB /* Pods-ScryptoString.debug.xcconfig */,
+				D2FBB83CCE3398FC64EC50B0E21860AB /* Pods-ScryptoString.release.xcconfig */,
 			);
-			name = "Pods-Scryptonizer";
-			path = "Target Support Files/Pods-Scryptonizer";
+			name = "Pods-ScryptoString";
+			path = "Target Support Files/Pods-ScryptoString";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -92,36 +92,36 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				92FF5048EC67FEA84D73983670392BBD /* Products */,
-				0B0D1EE6B88BD73CDB6B0E9C6C150BE6 /* Targets Support Files */,
+				45D8D9BA58F864E4CF5F262F18919016 /* Products */,
+				B73B5C147A2010BC27F9B85FC9B461C3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		92FF5048EC67FEA84D73983670392BBD /* Products */ = {
+		8FE68953AF972527D7725828D5B0FCF0 /* Pods-ScryptoStringTests */ = {
 			isa = PBXGroup;
 			children = (
-				F70AB976C2A2DA24F609439684931ADD /* Pods_Scryptonizer.framework */,
-				0587A31002E39F717F6AD9D76CF0E619 /* Pods_ScryptonizerTests.framework */,
+				6E62ED68B6342D13BA7BB0CCECE04811 /* Info.plist */,
+				BB49899B35969ACF1776BE1F40BEF96B /* Pods-ScryptoStringTests.modulemap */,
+				4F767AB42454FEDE7F8C3BC34D4654D1 /* Pods-ScryptoStringTests-acknowledgements.markdown */,
+				214E64F717FF45DC670999548421CEC5 /* Pods-ScryptoStringTests-acknowledgements.plist */,
+				96D73F88C9FEBE6F6FB28FB29229FA98 /* Pods-ScryptoStringTests-dummy.m */,
+				45B1D2F84C38740D2BF4721B8CCF52D7 /* Pods-ScryptoStringTests-frameworks.sh */,
+				A567C98225971B8029C50CED6486BE57 /* Pods-ScryptoStringTests-resources.sh */,
+				E9D3722391F5FA64FC7F365120C49291 /* Pods-ScryptoStringTests-umbrella.h */,
+				4A3DAB4DD6B086D8621F09C0F90F9AE3 /* Pods-ScryptoStringTests.debug.xcconfig */,
+				D84E6744EE5A123D5FFF4DD2680C035A /* Pods-ScryptoStringTests.release.xcconfig */,
 			);
-			name = Products;
+			name = "Pods-ScryptoStringTests";
+			path = "Target Support Files/Pods-ScryptoStringTests";
 			sourceTree = "<group>";
 		};
-		B19C7AA208FE996803EDB69237F58C19 /* Pods-ScryptonizerTests */ = {
+		B73B5C147A2010BC27F9B85FC9B461C3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				278F0495FA0935C7C1F5680542A5BF7D /* Info.plist */,
-				33E1773111211912FA0E5832E9CFB89D /* Pods-ScryptonizerTests.modulemap */,
-				3A53BCAC72E03D2A21E72EA939A80F27 /* Pods-ScryptonizerTests-acknowledgements.markdown */,
-				E2921C69CAE8358F697CEA35BCC83614 /* Pods-ScryptonizerTests-acknowledgements.plist */,
-				CE6502F8741494BB62F606386948C1AD /* Pods-ScryptonizerTests-dummy.m */,
-				3324C7C3749ED1F147D6B9F13DECE977 /* Pods-ScryptonizerTests-frameworks.sh */,
-				2CE23D4BB0E06994F31472D69914D282 /* Pods-ScryptonizerTests-resources.sh */,
-				27DC356A87D5F8B80247A6D24958C091 /* Pods-ScryptonizerTests-umbrella.h */,
-				CF808CB7498FA6F21CD1F88978A52696 /* Pods-ScryptonizerTests.debug.xcconfig */,
-				A1A8BD5B4E7299CE6CAC460D21E4AA8B /* Pods-ScryptonizerTests.release.xcconfig */,
+				6F16F5F08894A0DBBA3A47CC5AF33A5B /* Pods-ScryptoString */,
+				8FE68953AF972527D7725828D5B0FCF0 /* Pods-ScryptoStringTests */,
 			);
-			name = "Pods-ScryptonizerTests";
-			path = "Target Support Files/Pods-ScryptonizerTests";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -143,57 +143,57 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A7533BE098DCF92AE79D8876FA404AC6 /* Headers */ = {
+		005B15E690B434EDE53D031DE2F5BCAA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C7F5C1AA23C94608FB5863D64F17D17 /* Pods-Scryptonizer-umbrella.h in Headers */,
+				EDE957724C0FD9B5FE7B08F18592F9DA /* Pods-ScryptoStringTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C471A248D42BC2B201BB9D2E79090353 /* Headers */ = {
+		543B26D4651176E5719A76E709B05C78 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5864B5BA1570648060FCC5683410370 /* Pods-ScryptonizerTests-umbrella.h in Headers */,
+				B72B30982E54F29E9051637BAA02BD4D /* Pods-ScryptoString-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9D34AA5DBF9E3A86EF99C4F5D2316FE1 /* Pods-ScryptonizerTests */ = {
+		66405CD692AE0F87B0A4945A310747A2 /* Pods-ScryptoStringTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE26BD2C61040F702BBD33D42AE29129 /* Build configuration list for PBXNativeTarget "Pods-ScryptonizerTests" */;
+			buildConfigurationList = 0C2207D7F19C0D442192B9B342BDDE4C /* Build configuration list for PBXNativeTarget "Pods-ScryptoStringTests" */;
 			buildPhases = (
-				6BE3EE6C103AE118F4EA2688F85C1A8F /* Sources */,
-				E4A5B578017EEF55D88BEA1416DBFEBF /* Frameworks */,
-				C471A248D42BC2B201BB9D2E79090353 /* Headers */,
+				091A6A98ACAD2048732BC429C7B01542 /* Sources */,
+				142D34ACA103B0C2C7B960F3DD0E34F3 /* Frameworks */,
+				005B15E690B434EDE53D031DE2F5BCAA /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-ScryptonizerTests";
-			productName = "Pods-ScryptonizerTests";
-			productReference = 0587A31002E39F717F6AD9D76CF0E619 /* Pods_ScryptonizerTests.framework */;
+			name = "Pods-ScryptoStringTests";
+			productName = "Pods-ScryptoStringTests";
+			productReference = 9D3E1471A9200277B62B854B2A4F7DFE /* Pods_ScryptoStringTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BA9F4716A7276610642B462E1277E6A5 /* Pods-Scryptonizer */ = {
+		7C451C3C44710FDA16A79486536AAE83 /* Pods-ScryptoString */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31602B03A5BAD2EEA73ED8A9FC82F292 /* Build configuration list for PBXNativeTarget "Pods-Scryptonizer" */;
+			buildConfigurationList = 96577DE8CA3CDB504EA2C1AA3C4CF83C /* Build configuration list for PBXNativeTarget "Pods-ScryptoString" */;
 			buildPhases = (
-				B4570BBC7AB797D43634313B1AF90512 /* Sources */,
-				DCAFF8E1686D2B953FB5A56A5A6A7A34 /* Frameworks */,
-				A7533BE098DCF92AE79D8876FA404AC6 /* Headers */,
+				ECD25EFA17930A3BAD4C47CA4E337A0F /* Sources */,
+				8084DCDD7061AEC79C39415232B9E473 /* Frameworks */,
+				543B26D4651176E5719A76E709B05C78 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-Scryptonizer";
-			productName = "Pods-Scryptonizer";
-			productReference = F70AB976C2A2DA24F609439684931ADD /* Pods_Scryptonizer.framework */;
+			name = "Pods-ScryptoString";
+			productName = "Pods-ScryptoString";
+			productReference = 328F40B1B647EA4D098A34A61B97A5E7 /* Pods_ScryptoString.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -213,39 +213,39 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 92FF5048EC67FEA84D73983670392BBD /* Products */;
+			productRefGroup = 45D8D9BA58F864E4CF5F262F18919016 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BA9F4716A7276610642B462E1277E6A5 /* Pods-Scryptonizer */,
-				9D34AA5DBF9E3A86EF99C4F5D2316FE1 /* Pods-ScryptonizerTests */,
+				7C451C3C44710FDA16A79486536AAE83 /* Pods-ScryptoString */,
+				66405CD692AE0F87B0A4945A310747A2 /* Pods-ScryptoStringTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6BE3EE6C103AE118F4EA2688F85C1A8F /* Sources */ = {
+		091A6A98ACAD2048732BC429C7B01542 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC3E6C1364B9B53A68FC205D6DC4F355 /* Pods-ScryptonizerTests-dummy.m in Sources */,
+				F6DC5D7E0805CD2A2F9F8A7D929D5656 /* Pods-ScryptoStringTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B4570BBC7AB797D43634313B1AF90512 /* Sources */ = {
+		ECD25EFA17930A3BAD4C47CA4E337A0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A01D076072223F5D3E33F11E11920AC6 /* Pods-Scryptonizer-dummy.m in Sources */,
+				E3EF1D88CA0C9E456E2CCA613F51D743 /* Pods-ScryptoString-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		19F61F74224E83C0588E6B113506B8CD /* Debug */ = {
+		2EF6A5648434DF3B55C626CE884E5BFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF808CB7498FA6F21CD1F88978A52696 /* Pods-ScryptonizerTests.debug.xcconfig */;
+			baseConfigurationReference = 360D2B1405680D2060537B115B6FF4FB /* Pods-ScryptoString.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -256,17 +256,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ScryptonizerTests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScryptoString/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ScryptonizerTests/Pods-ScryptonizerTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-ScryptoString/Pods-ScryptoString.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ScryptonizerTests;
+				PRODUCT_NAME = Pods_ScryptoString;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -275,9 +275,9 @@
 			};
 			name = Debug;
 		};
-		4AB1403236F007918316A8FEA960790C /* Release */ = {
+		391369C77CA2208156970864A5274EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C73CC96EACDC323010D6E8569DAF363 /* Pods-Scryptonizer.release.xcconfig */;
+			baseConfigurationReference = D2FBB83CCE3398FC64EC50B0E21860AB /* Pods-ScryptoString.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -288,17 +288,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Scryptonizer/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScryptoString/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Scryptonizer/Pods-Scryptonizer.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-ScryptoString/Pods-ScryptoString.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Scryptonizer;
+				PRODUCT_NAME = Pods_ScryptoString;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -363,6 +363,71 @@
 			};
 			name = Release;
 		};
+		7F9303D50803CB20205D1E2FF9CC23B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D84E6744EE5A123D5FFF4DD2680C035A /* Pods-ScryptoStringTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScryptoStringTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScryptoStringTests/Pods-ScryptoStringTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ScryptoStringTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9C47F7747019B01A38DBA633C980376D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3DAB4DD6B086D8621F09C0F90F9AE3 /* Pods-ScryptoStringTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ScryptoStringTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScryptoStringTests/Pods-ScryptoStringTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ScryptoStringTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,74 +488,18 @@
 			};
 			name = Debug;
 		};
-		C0BFCE2F4E260E3E1182764DD1B832DE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDF534267876DF4A6BA273F2C2575196 /* Pods-Scryptonizer.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Scryptonizer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Scryptonizer/Pods-Scryptonizer.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Scryptonizer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C7B3227EEF2338FFA631C8718E6A0DA4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1A8BD5B4E7299CE6CAC460D21E4AA8B /* Pods-ScryptonizerTests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ScryptonizerTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ScryptonizerTests/Pods-ScryptonizerTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_ScryptonizerTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0C2207D7F19C0D442192B9B342BDDE4C /* Build configuration list for PBXNativeTarget "Pods-ScryptoStringTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C47F7747019B01A38DBA633C980376D /* Debug */,
+				7F9303D50803CB20205D1E2FF9CC23B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -500,20 +509,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		31602B03A5BAD2EEA73ED8A9FC82F292 /* Build configuration list for PBXNativeTarget "Pods-Scryptonizer" */ = {
+		96577DE8CA3CDB504EA2C1AA3C4CF83C /* Build configuration list for PBXNativeTarget "Pods-ScryptoString" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C0BFCE2F4E260E3E1182764DD1B832DE /* Debug */,
-				4AB1403236F007918316A8FEA960790C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CE26BD2C61040F702BBD33D42AE29129 /* Build configuration list for PBXNativeTarget "Pods-ScryptonizerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19F61F74224E83C0588E6B113506B8CD /* Debug */,
-				C7B3227EEF2338FFA631C8718E6A0DA4 /* Release */,
+				2EF6A5648434DF3B55C626CE884E5BFA /* Debug */,
+				391369C77CA2208156970864A5274EB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
