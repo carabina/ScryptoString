@@ -2,7 +2,7 @@
 //  ScryptoStringTests.swift
 //  ScryptoStringTests
 //
-//  Created by Perry Shalev on 02/05/2018.
+//  Created by Perry Sh on 02/05/2018.
 //  Copyright © 2018 Perry Sh. All rights reserved.
 //
 

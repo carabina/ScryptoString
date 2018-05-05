@@ -41,7 +41,7 @@ s.version = "0.1.0"
 s.license = { :type => "MIT", :file => "LICENSE" }
 
 # 4 - Replace with your name and e-mail address
-s.author = { "perrchick" => "perry.shalom@gmail.com" }
+s.author = { "Perry Sh" => "perry.shalom@gmail.com" }
 
 
 # 5 - Replace this URL with your own Github page's URL (from the address bar)
@@ -91,10 +91,10 @@ s.resources = "ScryptoString/**/*.{png,jpeg,jpg,storyboard,xib}"
 #  profile URL.
 #
 
-# s.author             = { "Perry Shalev" => "pshalev@liveperson.com" }
-# Or just: s.author    = "Perry Shalev"
-# s.authors            = { "Perry Shalev" => "pshalev@liveperson.com" }
-# s.social_media_url   = "http://twitter.com/Perry Shalev"
+# s.author             = { "Perry Sh" => "perrchick@gmail.com" }
+# Or just: s.author    = "Perry Sh"
+# s.authors            = { "Perry Sh" => "perrchick@gmail.com" }
+# s.social_media_url   = "http://twitter.com/perrchick"
 
 # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
