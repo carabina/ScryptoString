@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
+s.swift_version = '4.0'
 s.platform = :ios
 s.ios.deployment_target = '9.1'
 s.name = "ScryptoString"
