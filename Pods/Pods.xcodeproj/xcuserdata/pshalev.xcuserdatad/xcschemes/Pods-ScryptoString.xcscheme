@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BA9F4716A7276610642B462E1277E6A5"
-               BuildableName = "Pods_Scryptonizer.framework"
-               BlueprintName = "Pods-Scryptonizer"
+               BlueprintIdentifier = "7C451C3C44710FDA16A79486536AAE83"
+               BuildableName = "Pods_ScryptoString.framework"
+               BlueprintName = "Pods-ScryptoString"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BA9F4716A7276610642B462E1277E6A5"
-            BuildableName = "Pods_Scryptonizer.framework"
-            BlueprintName = "Pods-Scryptonizer"
+            BlueprintIdentifier = "7C451C3C44710FDA16A79486536AAE83"
+            BuildableName = "Pods_ScryptoString.framework"
+            BlueprintName = "Pods-ScryptoString"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

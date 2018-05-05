@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9D34AA5DBF9E3A86EF99C4F5D2316FE1"
-               BuildableName = "Pods_ScryptonizerTests.framework"
-               BlueprintName = "Pods-ScryptonizerTests"
+               BlueprintIdentifier = "66405CD692AE0F87B0A4945A310747A2"
+               BuildableName = "Pods_ScryptoStringTests.framework"
+               BlueprintName = "Pods-ScryptoStringTests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9D34AA5DBF9E3A86EF99C4F5D2316FE1"
-            BuildableName = "Pods_ScryptonizerTests.framework"
-            BlueprintName = "Pods-ScryptonizerTests"
+            BlueprintIdentifier = "66405CD692AE0F87B0A4945A310747A2"
+            BuildableName = "Pods_ScryptoStringTests.framework"
+            BlueprintName = "Pods-ScryptoStringTests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
